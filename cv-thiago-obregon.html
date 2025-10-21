@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Thiago Obregón | Técnico en Seguridad e Higiene</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2C3E50;
+            --secondary: #3498DB;
+            --accent: #E74C3C;
+            --light: #ECF0F1;
+            --dark: #34495E;
+            --success: #27AE60;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+            overflow: hidden;
+            animation: slideIn 0.8s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+        
+        .photo-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .photo-placeholder {
+            width: 250px;
+            height: 250px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+            border: 5px solid rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: white;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        
+        .photo-placeholder:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            animation: fadeInRight 0.8s ease;
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+            animation: fadeInRight 1s ease;
+        }
+        
+        .hero .location {
+            font-size: 1.1em;
+            opacity: 0.85;
+            animation: fadeInRight 1.2s ease;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+        
+        .btn-download {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn-download:hover {
+            background: #C0392B;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+        }
+        
+        .content {
+            padding: 50px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .section {
+            animation: fadeInUp 0.6s ease both;
+        }
+        
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 4px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left-color: var(--accent);
+        }
+        
+        .card-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .card-subtitle {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        
+        .card-content {
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill-item {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .info-item {
+            background: white;
+            border: 2px solid var(--light);
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .info-item:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .info-label {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+        
+        .info-value {
+            color: var(--dark);
+            font-size: 1.1em;
+        }
+        
+        .hobbies-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .hobby-tag {
+            background: var(--success);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .hobby-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+        }
+        
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.95em;
+        }
+        
+        @media (max-width: 1024px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5em;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .hero {
+                padding: 40px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .action-buttons {
+                justify-content: center;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            .btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="photo-container">
+                <div class="photo-placeholder">
+                    📸
+                </div>
+                <p style="text-align: center; margin-top: 10px; color: white; font-size: 0.9em; opacity: 0.8;">
+                    Reemplaza con tu foto:<br>
+                    <code style="background: rgba(0,0,0,0.2); padding: 5px 10px; border-radius: 5px; display: inline-block; margin-top: 5px;">
+                        &lt;img src="./foto.jpg" alt="Thiago Obregón"&gt;
+                    </code>
+                </p>
+            </div>
+            
+            <div class="hero-content">
+                <h1>Thiago Obregón</h1>
+                <p class="subtitle">Técnico en Seguridad e Higiene | Lic. en Economía</p>
+                <p class="location">📍 Monseñor de Andrea 3900, Posadas, Misiones</p>
+                
+                <div class="action-buttons">
+                    <a href="https://wa.me/549XXXXXXXXXX?text=Hola%20Thiago,%20vi%20tu%20CV%20y%20me%20gustaría%20contactarte" class="btn btn-whatsapp" target="_blank">
+                        📱 WhatsApp
+                    </a>
+                    <a href="./CV-Thiago-Obregon.pdf" class="btn btn-download" download>
+                        📥 Descargar PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="grid">
+                <div class="section">
+                    <h2 class="section-title">💼 Experiencia Laboral</h2>
+                    
+                    <div class="card">
+                        <div class="card-title">Técnico en Seguridad e Higiene</div>
+                        <div class="card-subtitle">2020 - Actualidad</div>
+                        <div class="card-content">
+                            Implementación y supervisión de medidas de seguridad laboral, auditorías de riesgo, 
+                            cumplimiento de normativas vigentes y gestión de prevención de accidentes en entornos industriales.
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">Cajero</div>
+                        <div class="card-subtitle">2020 - 2025</div>
+                        <div class="card-content">
+                            Gestión de operaciones bancarias y comerciales, manejo de efectivo, atención al cliente 
+                            y procesamiento de transacciones con alta responsabilidad y eficiencia.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">🎓 Formación Académica</h2>
+                    
+                    <div class="card">
+                        <div class="card-title">Licenciatura en Economía</div>
+                        <div class="card-content">
+                            Formación universitaria completa en ciencias económicas, análisis financiero, 
+                            microeconomía, macroeconomía y gestión empresarial.
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-title">Técnico en Seguridad e Higiene</div>
+                        <div class="card-content">
+                            Especialización en prevención de riesgos laborales, normativas de seguridad 
+                            industrial y gestión de ambientes de trabajo seguros.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section full-width">
+                    <h2 class="section-title">📚 Capacitaciones Adicionales</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">🤖 Inteligencia Artificial</div>
+                        <div class="skill-item">🔧 Mecánica Automotriz</div>
+                        <div class="skill-item">⚗️ Ingeniería Química</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">🌍 Idiomas</h2>
+                    <div class="card">
+                        <div class="card-content">
+                            <strong>🇬🇧 Inglés Británico</strong> - Nivel avanzado<br>
+                            <strong>🇮🇹 Italiano</strong> - Competente<br>
+                            <strong>🇩🇪 Alemán</strong> - Competente
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">💪 Habilidades Personales</h2>
+                    <div class="skills-grid">
+                        <div class="skill-item">⚽ Deportiva</div>
+                        <div class="skill-item">🧠 Psicológica</div>
+                        <div class="skill-item">💪 Física</div>
+                    </div>
+                </div>
+                
+                <div class="section full-width">
+                    <h2 class="section-title">ℹ️ Información Adicional</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">⏰ Disponibilidad Horaria</div>
+                            <div class="info-value">7:00 AM - 7:00 PM</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">🚗 Movilidad Propia</div>
+                            <div class="info-value">Sí (Auto y Camioneta)</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">📍 Disponibilidad de Radicación</div>
+                            <div class="info-value">No</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">✉️ Contacto Preferido</div>
+                            <div class="info-value">Solo WhatsApp</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section full-width">
+                    <h2 class="section-title">🎯 Hobbies & Intereses</h2>
+                    <div class="hobbies-container">
+                        <span class="hobby-tag">🏋️ CrossFit en Ummita</span>
+                        <span class="hobby-tag">⚽ Fútbol</span>
+                        <span class="hobby-tag">😤 Hincha apasionado</span>
+                        <span class="hobby-tag">🎵 Duki & Los del Fuego</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p><strong>Thiago Obregón</strong> - CV Profesional 2025</p>
+            <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">
+                Contacto exclusivo por WhatsApp • Posadas, Misiones, Argentina
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        // Animación suave al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
